@@ -3,6 +3,7 @@
 .idea/*
 
 # dependencies
+/client/node_modules
 node_modules
 /.pnp
 .pnp.js
@@ -25,3 +26,7 @@ yarn-debug.log*
 yarn-error.log*
 
 dist
+
+# next.js
+/client/.next/
+/client/out/
