@@ -1,0 +1,8 @@
+{
+  "name": "3o3-interview-front",
+  "version": "0.0.1",
+  "license": "MIT",
+  "scripts": {
+    "server": "cd server && yarn && yarn dev"
+  }
+}

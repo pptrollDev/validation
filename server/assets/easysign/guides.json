@@ -1,0 +1,24 @@
+{
+  "ok":true,
+  "data": {
+    "easysign": {
+      "guides": [
+        {
+          "image": "https://user-images.githubusercontent.com/34743425/150143743-cbe027a1-b111-4dd3-9099-d7e165be36bf.png",
+          "title": "01. 카카오톡앱에서",
+          "description": "지갑 채팅방에서 ‘인증하기’ 버튼 선택하기"
+        },
+        {
+          "image": "https://user-images.githubusercontent.com/34743425/150143742-a2a6b266-ba51-4d27-b6a0-c26831b9a6ae.png",
+          "description": "카카오 My 비밀번호 입력하기"
+        },
+        {
+          "image": "https://user-images.githubusercontent.com/34743425/150143736-58112385-62ee-48d3-af66-bbd14bd8a48b.png",
+          "title": "02. 삼쩜삼에서",
+          "description": "아래 인증완료 버튼 선택하면 끝"
+        }
+      ]
+    }
+  },
+  "error": null
+}

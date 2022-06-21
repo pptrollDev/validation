@@ -1,0 +1,12 @@
+{
+  "ok":true,
+  "data": {
+    "tax": {
+      "office": {
+        "name": "점삼 세무소",
+        "phone": "02-333-3333"
+      }
+    }
+  },
+  "error": null
+}

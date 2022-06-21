@@ -1,0 +1,18 @@
+{
+  "ok":true,
+  "data": {
+    "tax": {
+      "incomes": [
+        {
+          "type": "prepaid",
+          "amount": 3030000
+        },
+        {
+          "type": "refund",
+          "amount": -303000
+        }
+      ]
+    }
+  },
+  "error": null
+}
