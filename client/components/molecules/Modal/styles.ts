@@ -1,7 +1,7 @@
-import styled from 'styled-components';
-import { BLACK, WHITE } from '../../../styles/colors';
+import styled from 'styled-components'
+import { BLACK, WHITE } from '../../../styles/colors'
 
-export const Wrapper = styled.div``;
+export const Wrapper = styled.div``
 
 export const BackgroundWrapper = styled.div`
   position: fixed;
@@ -13,17 +13,21 @@ export const BackgroundWrapper = styled.div`
   opacity: 0.5;
   z-index: 1;
   cursor: pointer;
-`;
+`
 
 export const ContentWrapper = styled.div`
   position: fixed;
   bottom: 0;
   left: 0;
-  border-radius: 10px 10px 0 0;
-  padding: 15px;
-  width: calc(100% - 30px);
-  height: calc(100vh - 130px);
+  width: 100%;
+  display: flex;
+  justify-content: center;
   z-index: 1;
+`
+export const ContentDiv = styled.div`
+  border-radius: 24px 24px 0 0;
+  padding: 20px;
+  width: 600px;
+  min-width: 375px;
   background-color: ${WHITE};
-  overflow: scroll;
-`;
+`

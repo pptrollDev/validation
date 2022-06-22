@@ -20,8 +20,16 @@ const Certification = ({
   setError,
   disabled,
   setDisabled,
+  setIsVisible,
 }: ICertification) => {
-  const handleClick = () => {}
+  useEffect(() => {
+    if (error.name === '' && error.phone === '' && error.regNo === '')
+      setDisabled(false)
+  }, [error])
+
+  const handleClick = () => {
+    setIsVisible(true)
+  }
 
   const handleChange = (id: string, value: string) => {
     if (disabled == undefined) setDisabled(true)

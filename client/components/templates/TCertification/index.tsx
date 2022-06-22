@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
-import Certification from '../../organisms/certification'
-import { IError, IForm } from '../../organisms/certification/type'
+import Certification from '../../organisms/Certification'
+import { IError, IForm } from '../../organisms/Certification/type'
+import { ITCertification } from './type'
 
-const TCertification = () => {
+const TCertification = ({ setIsVisible }: ITCertification) => {
   const [form, setForm] = useState<IForm>({ name: '', phone: '', regNo: '' })
   const [error, setError] = useState<IError>({
     name: undefined,
@@ -19,6 +20,7 @@ const TCertification = () => {
       setError={setError}
       disabled={disabled}
       setDisabled={setDisabled}
+      setIsVisible={setIsVisible}
     />
   )
 }

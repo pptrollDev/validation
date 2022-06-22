@@ -5,6 +5,7 @@ export interface ICertification {
   setError: (error: IError) => void
   disabled: boolean | undefined
   setDisabled: (disabled: boolean) => void
+  setIsVisible: (isVisible: boolean) => void
 }
 
 export interface IForm {
