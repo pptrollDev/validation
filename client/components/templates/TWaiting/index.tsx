@@ -7,6 +7,7 @@ import {
   useEasySignState,
 } from '../../../context/EasySign'
 import Waiting from '../../organisms/Waiting'
+import { IGuide } from '../../organisms/Waiting/type'
 
 const TWaiting = () => {
   const router = useRouter()
@@ -19,6 +20,7 @@ const TWaiting = () => {
   const [second, setSecond] = useState<string>()
   const [time, setTime] = useState<number>()
   const timer = useRef<number>(0)
+  const [guides, setGuides] = useState<IGuide[]>([])
 
   useEffect(() => {
     console.log(easySignState)
@@ -29,6 +31,7 @@ const TWaiting = () => {
       setTime(parseInt(timer.current.toString()))
 
       getServerTime()
+      getEasysignGuides()
 
       const interval = setInterval(() => {
         if (timer.current > -1) {
@@ -88,6 +91,15 @@ const TWaiting = () => {
       })
   }
 
+  const getEasysignGuides = () => {
+    console.log('getEasysignGuides')
+    fetch('http://127.0.0.1:3001/api/v1/easysign/guides')
+      .then((res) => res.json())
+      .then((res) => {
+        setGuides(res.data.easysign.guides)
+      })
+  }
+
   const postEasysignRequest = () => {
     fetch('http://127.0.0.1:3001/api/v1/easysign/request', {
       method: 'post',
@@ -128,6 +140,7 @@ const TWaiting = () => {
 
   return minute !== undefined && second !== undefined && time !== undefined ? (
     <Waiting
+      guides={guides}
       minute={minute}
       second={second}
       time={time}

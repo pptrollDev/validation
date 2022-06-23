@@ -6,7 +6,7 @@ import { GRAY_50, GRAY_80, RED } from '../../../styles/colors'
 import Button from '../../atoms/Button'
 import { IWaiting } from './type'
 
-const Waiting = ({ minute, second, time, submit }: IWaiting) => {
+const Waiting = ({ guides, minute, second, time, submit }: IWaiting) => {
   return (
     <Wrapper>
       <$.TimeWrapper>
@@ -32,72 +32,35 @@ const Waiting = ({ minute, second, time, submit }: IWaiting) => {
       <$.dividerWrapper />
       <$.ContentWrapper>
         <div>
-          <$.InfoWrapper>
-            <$.InfoImgDiv>
-              <img src="/icons/KakaoApp.svg" />
-            </$.InfoImgDiv>
-            <$.InfoTextWrapper>
-              <div>
-                <$.InfoTextTitleContainer>
-                  <Label
-                    label="01. 카카오톡앱에서"
-                    color={GRAY_80}
-                    lineHeight="150%"
-                    fontWeight="500"
-                    fontSize="18px"
-                  />
-                </$.InfoTextTitleContainer>
+          {guides.map((guide) => (
+            <$.GuideWrapper>
+              <$.GuideImgDiv>
+                <img src={guide.image} />
+              </$.GuideImgDiv>
+              <$.GuideTextWrapper>
                 <div>
-                  <Label
-                    label="지갑 채팅방에서 ‘인증하기’ 버튼 선택하기"
-                    color={GRAY_50}
-                    fontWeight="500"
-                  />
+                  {guide.title && (
+                    <$.GuideTextTitleContainer>
+                      <Label
+                        label={guide.title}
+                        color={GRAY_80}
+                        lineHeight="150%"
+                        fontWeight="500"
+                        fontSize="18px"
+                      />
+                    </$.GuideTextTitleContainer>
+                  )}
+                  <div>
+                    <Label
+                      label={guide.description}
+                      color={GRAY_50}
+                      fontWeight="500"
+                    />
+                  </div>
                 </div>
-              </div>
-            </$.InfoTextWrapper>
-          </$.InfoWrapper>
-          <$.InfoWrapper>
-            <$.InfoImgDiv>
-              <img src="/icons/KakaoPassword.svg" />
-            </$.InfoImgDiv>
-            <$.InfoTextWrapper>
-              <div>
-                <div>
-                  <Label
-                    label="카카오 My 비밀번호 입력하기"
-                    color={GRAY_50}
-                    fontWeight="500"
-                  />
-                </div>
-              </div>
-            </$.InfoTextWrapper>
-          </$.InfoWrapper>
-          <$.InfoWrapper>
-            <$.InfoImgDiv>
-              <img src="/icons/Three.svg" />
-            </$.InfoImgDiv>
-            <$.InfoTextWrapper>
-              <div>
-                <$.InfoTextTitleContainer>
-                  <Label
-                    label="02. 삼쩜삼에서"
-                    color={GRAY_80}
-                    lineHeight="150%"
-                    fontWeight="500"
-                    fontSize="18px"
-                  />
-                </$.InfoTextTitleContainer>
-                <div>
-                  <Label
-                    label="아래 인증완료 버튼 선택하면끝"
-                    color={GRAY_50}
-                    fontWeight="500"
-                  />
-                </div>
-              </div>
-            </$.InfoTextWrapper>
-          </$.InfoWrapper>
+              </$.GuideTextWrapper>
+            </$.GuideWrapper>
+          ))}
         </div>
       </$.ContentWrapper>
       <$.ButtonContainer>

@@ -37,7 +37,7 @@ export const ContentWrapper = styled.div`
   justify-content: center;
 `
 
-export const InfoWrapper = styled.div`
+export const GuideWrapper = styled.div`
   margin-bottom: 36px;
   display: flex;
 
@@ -46,18 +46,22 @@ export const InfoWrapper = styled.div`
   }
 `
 
-export const InfoImgDiv = styled.div`
+export const GuideImgDiv = styled.div`
   margin-right: 36px;
   display: flex;
   align-items: center;
+
+  img {
+    width: 88px;
+  }
 `
 
-export const InfoTextWrapper = styled.div`
+export const GuideTextWrapper = styled.div`
   display: flex;
   align-items: center;
 `
 
-export const InfoTextTitleContainer = styled.div`
+export const GuideTextTitleContainer = styled.div`
   margin-bottom: 8px;
 `
 
