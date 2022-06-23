@@ -23,7 +23,7 @@ const Certification = ({
   setIsVisible,
 }: ICertification) => {
   useEffect(() => {
-    if (error.name === '' && error.phone === '' && error.regNo === '')
+    if (error.name === '' && error.phoneNumber === '' && error.regNumber === '')
       setDisabled(false)
   }, [error])
 
@@ -93,6 +93,7 @@ const Certification = ({
           <InputWithLabel
             id="name"
             label="이름"
+            defaultValue={form.name}
             tipLabel="닉네임이 아닌 실명인지 확인해주세요."
             errorLabel={error.name}
             onChange={handleChange}
@@ -100,17 +101,19 @@ const Certification = ({
         </$.InputContainer>
         <$.InputContainer>
           <InputWithLabel
-            id="phone"
+            id="phoneNumber"
             label="휴대폰 번호"
-            errorLabel={error.phone}
+            defaultValue={form.phoneNumber}
+            errorLabel={error.phoneNumber}
             onChange={handleChange}
           />
         </$.InputContainer>
         <$.InputContainer>
           <RegNoWithLabel
-            id="regNo"
+            id="regNumber"
             label="주민등록 번호"
-            errorLabel={error.regNo}
+            defaultValue={form.regNumber}
+            errorLabel={error.regNumber}
             onChange={handleChange}
           />
         </$.InputContainer>

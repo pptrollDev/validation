@@ -3,6 +3,7 @@ export interface ICertificationModal {
   setForm: (form: IForm) => void
   isVisible: boolean
   setIsVisible: (isVisible: boolean) => void
+  submit: () => void
 }
 
 export interface IForm {

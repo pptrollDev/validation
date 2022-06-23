@@ -3,12 +3,11 @@ import Certification from '../../organisms/Certification'
 import { IError, IForm } from '../../organisms/Certification/type'
 import { ITCertification } from './type'
 
-const TCertification = ({ setIsVisible }: ITCertification) => {
-  const [form, setForm] = useState<IForm>({ name: '', phone: '', regNo: '' })
+const TCertification = ({ form, setForm, setIsVisible }: ITCertification) => {
   const [error, setError] = useState<IError>({
     name: undefined,
-    phone: undefined,
-    regNo: undefined,
+    phoneNumber: undefined,
+    regNumber: undefined,
   })
   const [disabled, setDisabled] = useState<boolean>()
 

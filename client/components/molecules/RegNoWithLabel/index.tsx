@@ -8,12 +8,13 @@ import Input from '../../atoms/Input'
 const RegNoWithLabel = ({
   id,
   label,
+  defaultValue = '',
   tipLabel,
   errorLabel,
   onChange,
 }: IRegNoWithLabel) => {
   const [form, setForm] = useState({
-    regNo1: '',
+    regNo1: defaultValue,
     regNo2: '',
   })
 
@@ -32,11 +33,15 @@ const RegNoWithLabel = ({
       </$.LabelContainer>
       <$.InputContainer errorLabel={errorLabel}>
         <$.InputDiv errorLabel={errorLabel}>
-          <Input id="regNo1" value={form.regNo1} onChange={handleChange} />
+          <Input
+            id="regNo1"
+            defaultValue={defaultValue}
+            onChange={handleChange}
+          />
         </$.InputDiv>
         <$.InputDashDiv>-</$.InputDashDiv>
         <$.InputDiv errorLabel={errorLabel}>
-          <Input id="regNo2" value={form.regNo2} onChange={handleChange} />
+          <Input id="regNo2" type="password" onChange={handleChange} />
         </$.InputDiv>
       </$.InputContainer>
       {tipLabel && !errorLabel && (

@@ -8,6 +8,7 @@ import Input from '../../atoms/Input'
 const InputWithLabel = ({
   id,
   label,
+  defaultValue,
   tipLabel,
   errorLabel,
   onChange,
@@ -18,7 +19,7 @@ const InputWithLabel = ({
         <Label color={GRAY_70} label={label} />
       </$.LabelContainer>
       <$.InputContainer errorLabel={errorLabel}>
-        <Input id={id} onChange={onChange} />
+        <Input id={id} defaultValue={defaultValue} onChange={onChange} />
       </$.InputContainer>
       {tipLabel && !errorLabel && (
         <$.TipContainer>

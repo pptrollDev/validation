@@ -10,12 +10,12 @@ export interface ICertification {
 
 export interface IForm {
   name: string
-  phone: string
-  regNo: string
+  phoneNumber: string
+  regNumber: string
 }
 
 export interface IError {
   name?: string
-  phone?: string
-  regNo?: string
+  phoneNumber?: string
+  regNumber?: string
 }

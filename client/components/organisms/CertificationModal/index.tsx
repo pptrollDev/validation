@@ -11,6 +11,7 @@ const CertificationModal = ({
   setForm,
   isVisible,
   setIsVisible,
+  submit,
 }: ICertificationModal) => {
   const handleClick = (id: string, value?: boolean) => {
     switch (id) {
@@ -26,6 +27,10 @@ const CertificationModal = ({
         break
       case 'close':
         setIsVisible(false)
+        break
+      case 'submit':
+        submit()
+        break
       default:
         setForm({ ...form, [id]: value })
         break

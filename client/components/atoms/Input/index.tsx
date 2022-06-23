@@ -2,10 +2,15 @@ import React from 'react'
 import * as $ from './styles'
 import { IInput } from './type'
 
-const Input = ({ id, onChange }: IInput) => {
+const Input = ({ id, type = 'text', defaultValue = '', onChange }: IInput) => {
   return (
     <$.Wrapper>
-      <$.Input id={id} onChange={(e) => onChange(id, e.target.value)} />
+      <$.Input
+        id={id}
+        defaultValue={defaultValue}
+        type={type}
+        onChange={(e) => onChange(id, e.target.value)}
+      />
     </$.Wrapper>
   )
 }
