@@ -32,8 +32,8 @@ const Waiting = ({ guides, minute, second, time, submit }: IWaiting) => {
       <$.dividerWrapper />
       <$.ContentWrapper>
         <div>
-          {guides.map((guide) => (
-            <$.GuideWrapper>
+          {guides.map((guide, index) => (
+            <$.GuideWrapper key={index}>
               <$.GuideImgDiv>
                 <img src={guide.image} />
               </$.GuideImgDiv>

@@ -19,10 +19,6 @@ const Index: NextPage = () => {
     else setForm({ name: '', phoneNumber: '', regNumber: '' })
   }, [])
 
-  useEffect(() => {
-    console.log(certificationState)
-  }, [certificationState])
-
   return form !== undefined ? (
     <>
       {isVisible && (

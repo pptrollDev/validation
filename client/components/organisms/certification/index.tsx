@@ -35,7 +35,6 @@ const Certification = ({
     if (disabled == undefined) setDisabled(true)
     else {
       const tempForm = { ...form, [id]: value }
-
       let tempError: IError = {}
 
       for (const [key, value] of Object.entries(tempForm)) {
@@ -45,11 +44,11 @@ const Certification = ({
           case 'name':
             if (!validateName(value)) errorMessage = '올바른 이름을 입력하세요'
             break
-          case 'phone':
+          case 'phoneNumber':
             if (!validatePhoneNumber(value))
               errorMessage = '올바른 전화번호를 입력하세요'
             break
-          case 'regNo':
+          case 'regNumber':
             if (!validateFullRegNo(value))
               errorMessage = '올바른 주민등록번호를 입력하세요'
             break

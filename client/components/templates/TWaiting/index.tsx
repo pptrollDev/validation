@@ -23,8 +23,7 @@ const TWaiting = () => {
   const [guides, setGuides] = useState<IGuide[]>([])
 
   useEffect(() => {
-    console.log(easySignState)
-    if (easySignState) {
+    if (easySignState && certification) {
       const startedAt = dayjs(easySignState.startedAt)
       const expiredAt = dayjs(easySignState.expiredAt)
       timer.current = expiredAt.diff(startedAt) / 1000
@@ -92,7 +91,6 @@ const TWaiting = () => {
   }
 
   const getEasysignGuides = () => {
-    console.log('getEasysignGuides')
     fetch('http://127.0.0.1:3001/api/v1/easysign/guides')
       .then((res) => res.json())
       .then((res) => {
@@ -123,12 +121,13 @@ const TWaiting = () => {
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log('res', res)
         if (res.error) {
           window.alert(res.error.message)
           router.push('/')
           return
         }
+
+        router.push('/complete')
       })
   }
 
