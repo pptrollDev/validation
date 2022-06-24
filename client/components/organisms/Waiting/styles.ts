@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { GRAY_10, RED_LIGHT } from '../../../styles/colors'
 
 export const TimeWrapper = styled.div`
-  padding: 64px 50px 32px 50px;
+  margin: 64px 50px 32px 50px;
 `
 
 export const TitleContainer = styled.div`
@@ -32,7 +32,7 @@ export const dividerWrapper = styled.div`
   background-color: ${GRAY_10};
 `
 export const ContentWrapper = styled.div`
-  padding: 36px 40px 122px 40px;
+  margin: 36px 40px 0 40px;
   display: flex;
   justify-content: center;
 `
@@ -66,5 +66,5 @@ export const GuideTextTitleContainer = styled.div`
 `
 
 export const ButtonContainer = styled.div`
-  padding: 24px;
+  margin: 24px;
 `

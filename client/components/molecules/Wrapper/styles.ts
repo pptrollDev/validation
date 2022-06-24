@@ -6,8 +6,6 @@ export const Wrapper = styled.div`
 `
 
 export const ContentWrapper = styled.div`
-  padding: 0 24px;
-  width: 592px;
+  width: 640px;
   min-width: 375px;
-  height: 640px;
 `

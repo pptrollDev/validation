@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { BLUE_LIGHT } from '../../../styles/colors'
 
 export const HeaderWrapper = styled.div`
-  padding: 64px 0 32px 0;
+  margin: 64px 24px 32px 24px;
 `
 
 export const HeaderImgContainer = styled.div`
@@ -14,7 +14,7 @@ export const HeaderTitleContainer = styled.div`
 `
 
 export const ContentWrapper = styled.div<{ backgroundColor?: string }>`
-  margin-bottom: 36px;
+  margin: 0 24px 36px 24px;
   border-radius: 8px;
   background-color: ${(props) =>
     props.backgroundColor ? props.backgroundColor : BLUE_LIGHT};
