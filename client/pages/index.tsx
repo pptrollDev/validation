@@ -1,9 +1,9 @@
 import { NextPage } from 'next'
 import { useEffect, useState } from 'react'
-import { IForm } from '../components/organisms/Certification/type'
-import TCertification from '../components/templates/TCertification'
-import TCertificationModal from '../components/templates/TCertificationModal'
+import { IForm } from '../components/organisms/Home/type'
 import { useCertificationState } from '../context/Certification'
+import THome from '../components/templates/THome'
+import THomeModal from '../components/templates/THomeModal'
 
 const Index: NextPage = () => {
   const certificationState = useCertificationState()
@@ -22,17 +22,13 @@ const Index: NextPage = () => {
   return form !== undefined ? (
     <>
       {isVisible && (
-        <TCertificationModal
+        <THomeModal
           form={form}
           isVisible={isVisible}
           setIsVisible={setIsVisible}
         />
       )}
-      <TCertification
-        form={form}
-        setForm={setForm}
-        setIsVisible={setIsVisible}
-      />
+      <THome form={form} setForm={setForm} setIsVisible={setIsVisible} />
     </>
   ) : null
 }

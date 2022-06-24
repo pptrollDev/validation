@@ -3,16 +3,16 @@ import * as $ from './styles'
 import Modal from '../../molecules/Modal'
 import Label from '../../atoms/Label'
 import { GRAY_60 } from '../../../styles/colors'
-import { ICertificationModal } from './type'
+import { IHomeModal } from './type'
 import Button from '../../atoms/Button'
 
-const CertificationModal = ({
+const HomeModal = ({
   form,
   setForm,
   isVisible,
   setIsVisible,
   submit,
-}: ICertificationModal) => {
+}: IHomeModal) => {
   const handleClick = (id: string, value?: boolean) => {
     switch (id) {
       case 'checkAll':
@@ -94,4 +94,4 @@ const CertificationModal = ({
   )
 }
 
-export default CertificationModal
+export default HomeModal

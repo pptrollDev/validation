@@ -8,12 +8,12 @@ import {
 import Label from '../../atoms/Label'
 import InputWithLabel from '../../molecules/InputWithLabel'
 import RegNoWithLabel from '../../molecules/RegNoWithLabel'
-import { ICertification, IError } from './type'
+import { IHome, IError } from './type'
 import Button from '../../atoms/Button'
 import { GRAY_70 } from '../../../styles/colors'
 import Wrapper from '../../molecules/Wrapper'
 
-const Certification = ({
+const Home = ({
   form,
   setForm,
   error,
@@ -21,7 +21,7 @@ const Certification = ({
   disabled,
   setDisabled,
   setIsVisible,
-}: ICertification) => {
+}: IHome) => {
   useEffect(() => {
     if (error.name === '' && error.phoneNumber === '' && error.regNumber === '')
       setDisabled(false)
@@ -137,4 +137,4 @@ const Certification = ({
   )
 }
 
-export default Certification
+export default Home

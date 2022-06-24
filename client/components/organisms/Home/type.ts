@@ -1,4 +1,4 @@
-export interface ICertification {
+export interface IHome {
   form: IForm
   setForm: (form: IForm) => void
   error: IError

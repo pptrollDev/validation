@@ -1,4 +1,4 @@
-export interface ICertificationModal {
+export interface IHomeModal {
   form: IForm
   setForm: (form: IForm) => void
   isVisible: boolean

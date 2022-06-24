@@ -2,15 +2,11 @@ import { useRouter } from 'next/dist/client/router'
 import React, { useState } from 'react'
 import { useCertificationDispatch } from '../../../context/Certification'
 import { useEasySignDispatch } from '../../../context/EasySign'
-import CertificationModal from '../../organisms/CertificationModal'
-import { IForm } from '../../organisms/CertificationModal/type'
-import { ITCertificationModal } from './type'
+import CertificationModal from '../../organisms/HomeModal'
+import { IForm } from '../../organisms/HomeModal/type'
+import { ITHomeModal } from './type'
 
-const TCertificationModal = ({
-  form,
-  isVisible,
-  setIsVisible,
-}: ITCertificationModal) => {
+const THomeModal = ({ form, isVisible, setIsVisible }: ITHomeModal) => {
   const router = useRouter()
   const certificationDispatch = useCertificationDispatch()
   const easySignDispatch = useEasySignDispatch()
@@ -47,4 +43,4 @@ const TCertificationModal = ({
   )
 }
 
-export default TCertificationModal
+export default THomeModal

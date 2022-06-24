@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import Certification from '../../organisms/Certification'
-import { IError, IForm } from '../../organisms/Certification/type'
-import { ITCertification } from './type'
+import Home from '../../organisms/Home'
+import { IError } from '../../organisms/Home/type'
+import { ITHome } from './type'
 
-const TCertification = ({ form, setForm, setIsVisible }: ITCertification) => {
+const THome = ({ form, setForm, setIsVisible }: ITHome) => {
   const [error, setError] = useState<IError>({
     name: undefined,
     phoneNumber: undefined,
@@ -12,7 +12,7 @@ const TCertification = ({ form, setForm, setIsVisible }: ITCertification) => {
   const [disabled, setDisabled] = useState<boolean>()
 
   return (
-    <Certification
+    <Home
       form={form}
       setForm={setForm}
       error={error}
@@ -24,4 +24,4 @@ const TCertification = ({ form, setForm, setIsVisible }: ITCertification) => {
   )
 }
 
-export default TCertification
+export default THome
