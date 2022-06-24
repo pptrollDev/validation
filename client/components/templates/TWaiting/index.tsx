@@ -83,7 +83,7 @@ const TWaiting = () => {
   }, [windowConfirm])
 
   const getServerTime = () => {
-    fetch('http://127.0.0.1:3001/api/v1/serverTime')
+    fetch(`${process.env.URL}/serverTime`)
       .then((res) => res.json())
       .then((res) => {
         setServerTime(res.data.serverTime)
@@ -91,7 +91,7 @@ const TWaiting = () => {
   }
 
   const getEasysignGuides = () => {
-    fetch('http://127.0.0.1:3001/api/v1/easysign/guides')
+    fetch(`${process.env.URL}/easysign/guides`)
       .then((res) => res.json())
       .then((res) => {
         setGuides(res.data.easysign.guides)
@@ -99,7 +99,7 @@ const TWaiting = () => {
   }
 
   const postEasysignRequest = () => {
-    fetch('http://127.0.0.1:3001/api/v1/easysign/request', {
+    fetch(`${process.env.URL}/easysign/request`, {
       method: 'post',
     })
       .then((res) => res.json())
@@ -115,7 +115,7 @@ const TWaiting = () => {
   }
 
   const postEasysignComplete = () => {
-    fetch('http://127.0.0.1:3001/api/v1/easysign/complete', {
+    fetch(`${process.env.URL}/easysign/complete`, {
       method: 'post',
       body: JSON.stringify(certification),
     })

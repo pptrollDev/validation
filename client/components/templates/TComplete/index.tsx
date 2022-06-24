@@ -18,7 +18,7 @@ const TComplete = () => {
   }, [])
 
   const getTaxIncomes = () => {
-    fetch('http://127.0.0.1:3001/api/v1/tax/incomes')
+    fetch(`${process.env.URL}/tax/incomes`)
       .then((res) => res.json())
       .then((res) => {
         setIncomes(res.data.tax.incomes)
@@ -26,7 +26,7 @@ const TComplete = () => {
   }
 
   const getTaxOffice = () => {
-    fetch('http://127.0.0.1:3001/api/v1/tax/office')
+    fetch(`${process.env.URL}/tax/office`)
       .then((res) => res.json())
       .then((res) => {
         setOffice(res.data.tax.office)
