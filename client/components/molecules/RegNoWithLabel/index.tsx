@@ -14,12 +14,12 @@ const RegNoWithLabel = ({
   onChange,
 }: IRegNoWithLabel) => {
   const [form, setForm] = useState({
-    regNo1: defaultValue,
+    [id]: defaultValue,
     regNo2: '',
   })
 
   useEffect(() => {
-    onChange(id, form.regNo1 + form.regNo2)
+    onChange(id, form[id] + form.regNo2)
   }, [form])
 
   const handleChange = (id: string, value: string) => {
@@ -33,11 +33,7 @@ const RegNoWithLabel = ({
       </$.LabelContainer>
       <$.InputContainer errorLabel={errorLabel}>
         <$.InputDiv errorLabel={errorLabel}>
-          <Input
-            id="regNo1"
-            defaultValue={defaultValue}
-            onChange={handleChange}
-          />
+          <Input id={id} defaultValue={defaultValue} onChange={handleChange} />
         </$.InputDiv>
         <$.InputDashDiv>-</$.InputDashDiv>
         <$.InputDiv errorLabel={errorLabel}>

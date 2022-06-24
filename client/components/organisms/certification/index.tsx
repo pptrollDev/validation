@@ -93,9 +93,13 @@ const Certification = ({
             id="name"
             label="이름"
             defaultValue={form.name}
+            autoFocus={true}
             tipLabel="닉네임이 아닌 실명인지 확인해주세요."
             errorLabel={error.name}
             onChange={handleChange}
+            onEnter={() => {
+              document.getElementById('phoneNumber')?.focus()
+            }}
           />
         </$.InputContainer>
         <$.InputContainer>
@@ -105,6 +109,9 @@ const Certification = ({
             defaultValue={form.phoneNumber}
             errorLabel={error.phoneNumber}
             onChange={handleChange}
+            onEnter={() => {
+              document.getElementById('regNumber')?.focus()
+            }}
           />
         </$.InputContainer>
         <$.InputContainer>

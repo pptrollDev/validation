@@ -9,9 +9,11 @@ const InputWithLabel = ({
   id,
   label,
   defaultValue,
+  autoFocus,
   tipLabel,
   errorLabel,
   onChange,
+  onEnter,
 }: IInputWithLabel) => {
   return (
     <$.Wrapper>
@@ -19,7 +21,13 @@ const InputWithLabel = ({
         <Label color={GRAY_70} label={label} />
       </$.LabelContainer>
       <$.InputContainer errorLabel={errorLabel}>
-        <Input id={id} defaultValue={defaultValue} onChange={onChange} />
+        <Input
+          id={id}
+          defaultValue={defaultValue}
+          autoFocus={autoFocus}
+          onChange={onChange}
+          onEnter={onEnter}
+        />
       </$.InputContainer>
       {tipLabel && !errorLabel && (
         <$.TipContainer>
