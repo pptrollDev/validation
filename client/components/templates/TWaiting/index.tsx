@@ -1,6 +1,12 @@
 import dayjs from 'dayjs'
 import { useRouter } from 'next/dist/client/router'
 import React, { useEffect, useRef, useState } from 'react'
+import {
+  getEasysignGuides,
+  postEasysignComplete,
+  postEasysignRequest,
+} from '../../../api/easysign'
+import { getServerTime } from '../../../api/servertime'
 import { useCertificationState } from '../../../context/Certification'
 import {
   useEasySignDispatch,
@@ -29,8 +35,8 @@ const TWaiting = () => {
       timer.current = expiredAt.diff(startedAt) / 1000
       setTime(parseInt(timer.current.toString()))
 
-      getServerTime()
-      getEasysignGuides()
+      getTime()
+      getGuides()
 
       const interval = setInterval(() => {
         if (timer.current > -1) {
@@ -78,57 +84,50 @@ const TWaiting = () => {
   useEffect(() => {
     if (windowConfirm === undefined) return
 
-    if (windowConfirm) postEasysignRequest()
+    if (windowConfirm) postRequest()
     else router.push('/')
   }, [windowConfirm])
 
-  const getServerTime = () => {
-    fetch(`${process.env.URL}/serverTime`)
-      .then((res) => res.json())
-      .then((res) => {
-        setServerTime(res.data.serverTime)
-      })
+  const getTime = async () => {
+    const { data, error } = await getServerTime()
+
+    if (error) return
+
+    setServerTime(data.serverTime)
   }
 
-  const getEasysignGuides = () => {
-    fetch(`${process.env.URL}/easysign/guides`)
-      .then((res) => res.json())
-      .then((res) => {
-        setGuides(res.data.easysign.guides)
-      })
+  const getGuides = async () => {
+    const { data, error } = await getEasysignGuides()
+
+    if (error) return
+
+    setGuides(data.easysign.guides)
   }
 
-  const postEasysignRequest = () => {
-    fetch(`${process.env.URL}/easysign/request`, {
-      method: 'post',
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        easySignDispatch({ type: 'createEasySign', data: res.data })
+  const postRequest = async () => {
+    const { data, error } = await postEasysignRequest()
 
-        const startedAt = dayjs(res.data.startedAt)
-        const expiredAt = dayjs(res.data.expiredAt)
+    if (error) return
 
-        timer.current = expiredAt.diff(startedAt) / 1000
-        setTime(parseInt(timer.current.toString()))
-      })
+    easySignDispatch({ type: 'createEasySign', data: data })
+
+    const startedAt = dayjs(data.startedAt)
+    const expiredAt = dayjs(data.expiredAt)
+
+    timer.current = expiredAt.diff(startedAt) / 1000
+    setTime(parseInt(timer.current.toString()))
   }
 
-  const postEasysignComplete = () => {
-    fetch(`${process.env.URL}/easysign/complete`, {
-      method: 'post',
-      body: JSON.stringify(certification),
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        if (res.error) {
-          window.alert(res.error.message)
-          router.push('/')
-          return
-        }
+  const postComplete = async () => {
+    const { data, error } = await postEasysignComplete(certification)
 
-        router.push('/complete')
-      })
+    if (error) {
+      window.alert(error.response.data.error.message)
+      router.push('/')
+      return
+    }
+
+    router.push('/complete')
   }
 
   const convertDigitNumber = (number: number) => {
@@ -144,7 +143,7 @@ const TWaiting = () => {
       second={second}
       time={time}
       submit={() => {
-        postEasysignComplete()
+        postComplete()
       }}
     />
   ) : null

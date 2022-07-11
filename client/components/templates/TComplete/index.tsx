@@ -1,5 +1,6 @@
 import { useRouter } from 'next/dist/client/router'
 import React, { useEffect, useState } from 'react'
+import { getTaxIncomes, getTaxOffice } from '../../../api/tax'
 import { useCertificationState } from '../../../context/Certification'
 import Complete from '../../organisms/Complete'
 import { IIncome, IOffice } from '../../organisms/Complete/type'
@@ -12,25 +13,25 @@ const TComplete = () => {
 
   useEffect(() => {
     if (certification) {
-      getTaxIncomes()
-      getTaxOffice()
+      getIncomes()
+      getOffice()
     } else router.push('/')
   }, [])
 
-  const getTaxIncomes = () => {
-    fetch(`${process.env.URL}/tax/incomes`)
-      .then((res) => res.json())
-      .then((res) => {
-        setIncomes(res.data.tax.incomes)
-      })
+  const getIncomes = async () => {
+    const { data, error } = await getTaxIncomes()
+
+    if (error) return
+
+    setIncomes(data.tax.incomes)
   }
 
-  const getTaxOffice = () => {
-    fetch(`${process.env.URL}/tax/office`)
-      .then((res) => res.json())
-      .then((res) => {
-        setOffice(res.data.tax.office)
-      })
+  const getOffice = async () => {
+    const { data, error } = await getTaxOffice()
+
+    if (error) return
+
+    setOffice(data.tax.office)
   }
 
   return certification !== undefined &&

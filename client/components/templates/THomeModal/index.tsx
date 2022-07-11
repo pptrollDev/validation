@@ -1,5 +1,6 @@
 import { useRouter } from 'next/dist/client/router'
 import React, { useState } from 'react'
+import { postEasysignRequest } from '../../../api/easysign'
 import { useCertificationDispatch } from '../../../context/Certification'
 import { useEasySignDispatch } from '../../../context/EasySign'
 import CertificationModal from '../../organisms/HomeModal'
@@ -17,17 +18,17 @@ const THomeModal = ({ form, isVisible, setIsVisible }: ITHomeModal) => {
     info: false,
   })
 
-  const postEasysignRequest = () => {
-    fetch('http://127.0.0.1:3001/api/v1/easysign/request', { method: 'post' })
-      .then((res) => res.json())
-      .then((res) => {
-        certificationDispatch({
-          type: 'createCertification',
-          data: form,
-        })
-        easySignDispatch({ type: 'createEasySign', data: res.data })
-        router.push('/waiting')
-      })
+  const postRequest = async () => {
+    const { data, error } = await postEasysignRequest()
+
+    if (error) return
+
+    certificationDispatch({
+      type: 'createCertification',
+      data: form,
+    })
+    easySignDispatch({ type: 'createEasySign', data: data })
+    router.push('/waiting')
   }
 
   return (
@@ -37,7 +38,7 @@ const THomeModal = ({ form, isVisible, setIsVisible }: ITHomeModal) => {
       isVisible={isVisible}
       setIsVisible={setIsVisible}
       submit={() => {
-        postEasysignRequest()
+        postRequest()
       }}
     />
   )

@@ -71,7 +71,7 @@ const v1Route: FastifyPluginCallback = (fastify, option, done) => {
       })
     }
 
-    const { name, phoneNumber, regNumber } = JSON.parse(body.toString())
+    const { name, phoneNumber, regNumber } = body
     if (!validateName(name)) {
       return rep.status(400).send({
         ok: false,
