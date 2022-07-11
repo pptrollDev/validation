@@ -102,7 +102,7 @@ const v1Route: FastifyPluginCallback = (fastify, option, done) => {
       })
     }
 
-    if (name !== '김점삼') {
+    if (name !== 'test') {
       return rep.status(400).send({
         ok: false,
         error: {
