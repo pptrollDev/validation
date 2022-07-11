@@ -12,6 +12,14 @@ yarn install
 yarn dev
 ```
 
+### Clinet 실행방법
+
+```
+cd ./client
+yarn install
+yarn dev
+```
+
 ### 테스트 이름
 
 test
