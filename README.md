@@ -15,4 +15,3 @@ yarn dev
 ### 테스트 이름
 
 test
-# validation
